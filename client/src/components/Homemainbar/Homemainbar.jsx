@@ -7,7 +7,16 @@ import { useSelector } from 'react-redux'
 const Homemainbar = () => {
   const user = 1;
   const location = useLocation();
+  const Navigate = useNavigate();
   const questionlist = null;
+  const checkauth = () =>{
+    if(user ===null){
+      alert("login or Signup to ask a question")
+      Navigate("/Auth")
+    }else{
+      Navigate("/Askqeustion")
+    }
+  }
   return (
     <div className='main-bar'>
       <div className="main-bar-header">
@@ -16,7 +25,7 @@ const Homemainbar = () => {
         ) : (
           <h1>All Question</h1>
         )}
-        <button className='ask-btn'>Ask Question</button>
+        <button className='ask-btn' onClick={checkauth}>Ask Question</button>
       </div>
       <div>{
         questionlist === null ? (
