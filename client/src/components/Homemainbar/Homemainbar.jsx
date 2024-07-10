@@ -14,7 +14,7 @@ const Homemainbar = () => {
       alert("login or Signup to ask a question")
       Navigate("/Auth")
     }else{
-      Navigate("/Askqeustion")
+      Navigate("/Askquestion")
     }
   }
   return (
@@ -25,7 +25,9 @@ const Homemainbar = () => {
         ) : (
           <h1>All Question</h1>
         )}
-        <button className='ask-btn' onClick={checkauth}>Ask Question</button>
+        <button className='ask-btn' onClick={checkauth
+        
+        }>Ask Question</button>
       </div>
       <div>{
         questionlist === null ? (

@@ -8,7 +8,7 @@ import Avatar from '../../components/Avatar/Avatar'
 import './Navbar.css'
 const Navbar = () => {
     let User = null;
-
+    const navigate = useNavigate()
   return (
     <nav className="main-nav">
         <div className="navbar">
@@ -40,7 +40,7 @@ const Navbar = () => {
 
             <div className="navbar-2">
                 {User===null?(
-                    <Link to= '/' className='nav-item nav-links'>
+                    <Link to= '/Auth' className='nav-item nav-links'>
                         Log in
                     </Link>
                 ):(
