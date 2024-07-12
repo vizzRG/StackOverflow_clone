@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Leftsidebar from '../../components/LeftSideBar/Leftsidebar'
+import Leftsidebar from '../../Comnponent/Leftsidebar/Leftsidebar'
 import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import { useSelector } from 'react-redux'

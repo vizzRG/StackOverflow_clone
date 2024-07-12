@@ -1,19 +1,17 @@
 .main-bar {
-    width: calc(100% - 500px - 24px);
+    width: calc(100% - 300px - 24px);
     float: left;
     margin: 25px 0px;
     padding: 0;
   }
   
   .main-bar-header {
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
   .main-bar-header h1 {
-    margin-right: 500px;
     font-weight: 400;
   }
   
@@ -88,7 +86,7 @@
     font-size: 13px;
   }
   
-  /* @media screen and (max-width: 1020px) {
+  @media screen and (max-width: 1020px) {
     .main-bar {
       width: 100%;
     }
@@ -99,4 +97,4 @@
       padding: 10px;
     }
   }
-   */
+  
