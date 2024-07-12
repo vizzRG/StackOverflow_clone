@@ -11,10 +11,12 @@ import { Link ,useNavigate,useLocation,useParams} from 'react-router-dom'
 import {deletequestion,votequestion,postanswer} from '../../action/question'
 const Qustiondetails = () => {
     const [answer,setanswer]=useState("")
-    const questionlist=null
-    const user =null
-    const location = useLocation()
-    const navigate = useNavigate()
+    const dispatch=useDispatch()
+    const questionlist=useSelector((state)=>state.questionreducer)
+    const { id } = useParams();
+    const user =useSelector((state)=>state.currentuserreducer)
+    const location=useLocation()
+    const navigate=useNavigate()
     const url="http://localhost:3000"
     const handlepostans=(e,answerlength)=>{
         e.preventDefault();
@@ -25,6 +27,10 @@ const Qustiondetails = () => {
             if(answer===""){
                 alert("Enter an answer before submitting")
             }else{
+                dispatch(postanswer({id,
+                    noofanswers:answerlength+1,
+                    answerbody:answer,
+                    useranswered:user.result.name}));
                 setanswer("")
             }
         }
@@ -35,19 +41,22 @@ const Qustiondetails = () => {
     }
 
     const handledelete=()=>{
-        
+        dispatch(deletequestion(id,navigate))
     }
-
     const handleupvote=()=>{
         if(user=== null){
             alert("Login or Signup to answer a question")
             navigate('/Auth')
+        }else{
+            dispatch(votequestion(id,"upvote"))
         }
     }
     const handledownvote=()=>{
         if(user=== null){
             alert("Login or Signup to answer a question")
             navigate('/Auth')
+        }else{
+            dispatch(votequestion(id,"downvote"))
         }
     }
   return (

@@ -3,11 +3,13 @@ import moment from 'moment'
 import { Link,useParams } from 'react-router-dom'
 import Avatar from '../../Comnponent/Avatar/Avatar'
 import { useDispatch ,useSelector} from 'react-redux'
-
+import { deleteanswer } from '../../action/question'
 const Displayanswer = ({ question, handleshare }) => {
-  const user =null
+  const user =useSelector((state)=>state.currentuserreducer)
+  const {id}=useParams();
+  const dispatch=useDispatch()
   const handledelete = (answerid, noofanswers) => {
-    
+    dispatch(deleteanswer(id,answerid,noofanswers -1))
   }
   return (
     <div>
